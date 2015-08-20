@@ -3,6 +3,7 @@ var wrap        = require('gulp-wrap');
 var declare     = require('gulp-declare');
 var concat      = require('gulp-concat');
 var sass        = require('gulp-sass');
+var globbing    = require('gulp-css-globbing');
 var bower       = require('main-bower-files');
 var notify      = require('gulp-notify');
 var plumber     = require('gulp-plumber');
@@ -27,7 +28,7 @@ var notifyError = function() {
 gulp.task('watch', ['watchlist', 'webserver']);
 
 gulp.task('watchlist', function() {
-  gulp.watch('./app/sass/*.scss',     ['sass']);
+  gulp.watch('./app/sass/**/*.scss',     ['sass']);
   gulp.watch('./bower.json',      ['bower']);
   gulp.watch('./app/index.html',      ['hint:html']);
   gulp.watch('./app/js/**/*.js',         ['hint:js']);
@@ -76,6 +77,9 @@ gulp.task('hint:html', function() {
 gulp.task('sass', function() {
   return gulp.src('./app/sass/*.scss')
     .pipe(notifyError())
+    .pipe(globbing({
+        extensions: ['.scss']
+    }))
     .pipe(sass())
     .pipe(gulp.dest('./app/css'));
 });

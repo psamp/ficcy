@@ -4,12 +4,13 @@
 // End Bourbon and Neat
 
 // Import Partials
-@import 'partials/base.scss';
-@import 'partials/home.scss';
-@import 'partials/dash.scss';
-@import 'partials/userfics.scss';
-@import 'partials/fic.scss';
-@import 'partials/ficlist.scss';
-@import 'partials/edit.scss';
-@import 'partials/profile.scss';
-// End
+@import 'partials/*';
+// @import 'partials/base.scss';
+// @import 'partials/home.scss';
+// @import 'partials/dash.scss';
+// @import 'partials/userfics.scss';
+// @import 'partials/fic.scss';
+// @import 'partials/ficlist.scss';
+// @import 'partials/edit.scss';
+// @import 'partials/profile.scss';
+// End Partials
